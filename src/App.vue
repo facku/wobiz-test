@@ -16,7 +16,6 @@
 <style lang="css">
 body {
   box-sizing: border-box;
-  background: red;
 }
 
 * {

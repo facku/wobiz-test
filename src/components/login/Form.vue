@@ -44,8 +44,8 @@ export default {
   data () {
     return {
       model: {
-        username: 'facku',
-        password: '56s1d5s1ds561d'
+        username: '',
+        password: ''
       }
     }
   },

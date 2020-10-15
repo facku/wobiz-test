@@ -1,7 +1,7 @@
 <template>
   <div class="col col-12">
     <div class="row">
-      <div class="col col-12 col-md-6 col-lg-4 p-0 ml-0">
+      <div class="col col-12 col-md-6 col-lg-4 p-0 m-0 ">
         <div class="box vh-100 box-shadow">
           <div class="row h-100">
             <div class="h-100 col">
@@ -84,7 +84,7 @@ export default {
     top: 42px;
     position: absolute;
     right: 10%;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .btn {
