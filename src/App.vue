@@ -1,6 +1,15 @@
 <template>
   <div id="app">
-    <router-view />
+    <b-overlay
+      :show="$store.state.app.loading"
+      rounded
+      opacity="0.6"
+      spinner-small
+      spinner-variant="primary"
+      class="d-inline-block"
+    >
+      <router-view />
+    </b-overlay>
   </div>
 </template>
 

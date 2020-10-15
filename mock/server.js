@@ -23,7 +23,7 @@ const failUser = {
 }
 
 server.post('/login', (req, res) => {
-  const rnd = Math.floor(Math.random() * 3)
+  const rnd = Math.floor(Math.random() * 5)
 
   if (rnd > 1) {
     res.json(successJson)

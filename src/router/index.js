@@ -12,6 +12,10 @@ const routes = [
         path: '', component: () => import('../views/Login.view.vue')
       }
     ]
+  },
+  {
+    path: '/home',
+    component: () => import('../views/Home.vue')
   }
 ]
 
@@ -19,6 +23,17 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const { Store } = require('../store')
+
+  if (Store.state.user.token === null) {
+    if (to.path !== '/') router.push('/')
+  } else {
+    if (to.path === '/') router.push('/home')
+  }
+  next()
 })
 
 export default router

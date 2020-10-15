@@ -5,13 +5,21 @@
     <b-form-group
       label="Email"
     >
-      <b-form-input v-model="model.username" placeholder="ej: usuario@mail.com" size="lg"></b-form-input>
+      <b-form-input v-model="model.username" :readonly="$store.state.app.loading" placeholder="ej: usuario@mail.com" size="lg"></b-form-input>
+
+      <div class="alert alert-danger mt-3" role="alert" v-show="false">
+        Necesitamos tu email.
+      </div>
     </b-form-group>
 
     <b-form-group
       label="Password"
     >
-      <b-form-input v-model="model.password" type="password" placeholder="Escribe tu Contraseña" size="lg"></b-form-input>
+      <b-form-input v-model="model.password" :readonly="$store.state.app.loading" type="password" placeholder="Escribe tu Contraseña" size="lg"></b-form-input>
+
+      <div class="alert alert-danger mt-3" role="alert" v-show="false">
+        Necesitamos tu contraseña.
+      </div>
     </b-form-group>
 
     <div style="margin:1.6rem auto;"  >
@@ -30,7 +38,7 @@ export default {
     return {
       model: {
         username: 'facku',
-        password: '123456'
+        password: '56s1d5s1ds561d'
       }
     }
   },
@@ -42,3 +50,11 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+.alert-danger {
+  background-color:#e85837;
+  color:white;
+  border:none;
+}
+</style>

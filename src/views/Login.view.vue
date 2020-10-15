@@ -29,8 +29,30 @@ export default {
 
   methods: {
     submit (event) {
-      // console.log(event)
-      this.$store.dispatch('user/login', event)
+      this.$store.dispatch('app/Loading', true)
+
+      this.axios.post('//admin.localwobiz.com/login', event)
+        .then(resp => {
+          const data = {
+            id: resp.data.user_id,
+            sessionExpires: resp.data.expires,
+            token: resp.data.token,
+            user: event.username
+          }
+
+          this.$store.dispatch('user/login', data)
+
+          setTimeout(() => {
+            this.$store.dispatch('app/Loading', false)
+            this.$router.push('/home')
+          }, 600)
+        })
+        .catch(error => {
+          console.log('errorData', error.response.data.message || error)
+          setTimeout(() => {
+            this.$store.dispatch('app/Loading', false)
+          }, 600)
+        })
     }
   }
 
