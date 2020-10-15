@@ -7,7 +7,7 @@
     >
       <b-form-input v-model="model.username" :readonly="$store.state.app.loading" placeholder="ej: usuario@mail.com" size="lg"></b-form-input>
 
-      <div class="alert alert-danger mt-3" role="alert" v-show="false">
+      <div class="alert alert-danger mt-3" role="alert" v-show="error">
         Necesitamos tu email.
       </div>
     </b-form-group>
@@ -17,7 +17,7 @@
     >
       <b-form-input v-model="model.password" :readonly="$store.state.app.loading" type="password" placeholder="Escribe tu Contraseña" size="lg"></b-form-input>
 
-      <div class="alert alert-danger mt-3" role="alert" v-show="false">
+      <div class="alert alert-danger mt-3" role="alert" v-show="error">
         Necesitamos tu contraseña.
       </div>
     </b-form-group>
@@ -33,6 +33,13 @@
 <script>
 export default {
   name: 'LoginForm',
+
+  props: {
+    error: {
+      type: Boolean,
+      required: true
+    }
+  },
 
   data () {
     return {
