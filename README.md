@@ -4,8 +4,6 @@
 
 *Por Facundo N. López*
 
-*Demo Online: https://wobiz-test.vercel.app/*
-
 ### Objetivo
 
 > Maquetar y desarrollar la funcionalidad de la siguiente pantalla:
