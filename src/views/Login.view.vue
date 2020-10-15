@@ -5,7 +5,7 @@
         <div class="box vh-100 box-shadow">
           <div class="row h-100">
             <div class="h-100 col">
-              <a data-v-508c2672="" href="https://www.wobiz.com"><img data-v-508c2672="" src="@/assets/logo.png" class="logo"></a>
+              <a href="https://www.wobiz.com"><img src="@/assets/logo.png" class="logo"></a>
               <login-form @submit="submit" :error="loginError"/>
             </div>
           </div>
@@ -20,7 +20,7 @@
               ¿No tienes una cuenta en Wobiz?
             </p>
               <a href="https://admin.wobiz.com.ar/signup"
-                class="btn btn-transparent-wobiz btn-outline-reseller"
+                class="btn btn-outline-reseller"
               >
                 <div data-v-0f6a5923="" class="button-text">Crea tu cuenta</div>
               </a>
@@ -32,7 +32,9 @@
 </template>
 
 <script>
+import schema from '@/components/login/login.dto.js'
 import LoginForm from '@/components/login/Form.vue'
+
 export default {
   name: 'Login',
 
@@ -47,9 +49,20 @@ export default {
   methods: {
     submit (event) {
       this.$store.dispatch('app/Loading', true)
-
       this.loginError = false
 
+      const validDTO = schema.validate(event)
+
+      if (validDTO.error) {
+        // console.log(validDTO.error.details[0])
+        this.loginError = true
+        this.$store.dispatch('app/Loading', false)
+      } else {
+        this.login(event)
+      }
+    },
+
+    login (event) {
       this.axios.post('//admin.localwobiz.com/login', event)
         .then(resp => {
           const data = {
@@ -80,6 +93,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.vw-img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: right;
+  object-position: right;
+}
+
 .text-button {
     top: 42px;
     position: absolute;
