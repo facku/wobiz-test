@@ -84,12 +84,13 @@ export default {
     top: 42px;
     position: absolute;
     right: 10%;
+    font-size: 13px;
 }
 
 .btn {
     height: 35px;
     display: inline-block;
-    font-weight: 400;
+    font-weight: 700;
     color: #212529;
     text-align: center;
     vertical-align: middle;
@@ -99,7 +100,7 @@ export default {
     user-select: none;
     background-color: transparent;
     border: 1px solid transparent;
-    font-size: 1rem;
+    font-size: 13px;
     border-radius: .25rem;
     -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
