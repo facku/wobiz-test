@@ -11,6 +11,8 @@ https://admin.wobiz.com.ar/signin usando Vue.js y Bootstrap
 
 ## Mi Implementación
 
+![Wobiz Logo](thumbnail.png)
+
 ### BootstrapVue
 He decido usar este framework. Se trata de una implementacion nativa de boostrap 4 para vue, pero escrita en js vanilla, no necesita nignuna otra dependencia, y no usa jquery. https://bootstrap-vue.org/
 
